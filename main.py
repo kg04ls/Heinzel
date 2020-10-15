@@ -84,5 +84,7 @@ for program in programms_list:
     dialog.listbox.insert(END, program)
 
 
-dialog.pack(expand = 'True', fill = 'both')
+
+if __name__== '__main__':
+    dialog.pack(expand = 'True', fill = 'both')
 root.mainloop()
