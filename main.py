@@ -85,6 +85,6 @@ for program in programms_list:
 
 
 
-if __name__== '__main__':
-    dialog.pack(expand = 'True', fill = 'both')
-root.mainloop()
+dialog.pack(expand = 'True', fill = 'both')
+if __name__ == '__main__':
+    root.mainloop()
