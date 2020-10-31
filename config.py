@@ -11,3 +11,7 @@ box_bg = '#2e3440'
 # Text 
 text_color = '#d8dee9'
 font_size = 18
+
+# Sources
+
+sources = ["/bin", "/usr/bin"]
