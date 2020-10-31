@@ -7,9 +7,10 @@ for i in sources:
     programms_list.extend(os.listdir(path = i))
 programms_list = sorted(set(programms_list))
 
+windows_size = str(weight)+"x"+str(hight)
 root = Tk()
-root['bg'] = box_bg
-root.geometry('300x300')
+root['bg'] = listbox_bg
+root.geometry(windows_size)
 root.resizable(False, False)
 root.attributes('-type', 'dialog')
 
@@ -23,13 +24,13 @@ class Dialog(Frame):
         self.var = StringVar()
         self.var.trace("w", self.entry_changed)
 
-        self.entry = Entry(self, textvariable = self.var, bg = entry_bg, font = ('Arial' , font_size), fg = text_color, highlightthickness=0, bd = 0, insertbackground = text_color)
+        self.entry = Entry(self, textvariable = self.var, bg = entry_bg, font = (text_font , font_size), fg = text_color, highlightthickness=0, bd = 0, insertbackground = text_color)
         self.entry.pack(fill = 'x')
 
-        self.fr = Frame(self, height=2, bg = border_color)
+        self.fr = Frame(self, height=separator_size, bg = separator_color)
         self.fr.pack(fill = 'x')
 
-        self.listbox = Listbox(self,exportselection=0, selectmode='single', bg = box_bg, font = ('Arial' , font_size), fg = text_color, highlightthickness=0, bd = 0, activestyle = 'none')
+        self.listbox = Listbox(self,exportselection=0, selectmode='single', bg = listbox_bg, font = (text_font , font_size), fg = text_color ,selectforeground = text_color,selectbackground = focus_color, highlightthickness = 0 , bd = 0, activestyle = 'none')
         self.listbox.pack(fill=BOTH, expand=1)
 
 
@@ -57,6 +58,7 @@ class Dialog(Frame):
             x = self.listbox.curselection()[0]
             self.listbox.select_clear(x)
             self.listbox.select_set(x-1)
+            self.listbox.yview_scroll(-1, "units")
 
     def list_down(self, *args):
         x = self.listbox.curselection()[0]
@@ -65,6 +67,7 @@ class Dialog(Frame):
             self.listbox.select_clear(x)
             self.listbox.select_set(x+1)
 
+            self.listbox.yview_scroll(1, "units")
 
     def start(self, *args):
         selection = self.listbox.curselection()
@@ -85,4 +88,5 @@ dialog.listbox.select_set(0)
 dialog.listbox.activate(0)
 
 dialog.pack(expand = 'True', fill = 'both')
-root.mainloop()
+if __name__ == '__main__':
+    root.mainloop()
