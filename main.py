@@ -19,7 +19,7 @@ class Dialog(Frame):
         self.var = StringVar()
         self.var.trace("w", self.vald)
 
-        self.entry =Entry(self, textvariable = self.var, bg = entry_bg, font = ('Arial' , font_size), fg = text_color, highlightthickness=0, bd = 0, insertbackground = text_color)
+        self.entry = Entry(self, textvariable = self.var, bg = entry_bg, font = ('Arial' , font_size), fg = text_color, highlightthickness=0, bd = 0, insertbackground = text_color)
         self.entry.pack(fill = 'x')
 
         self.fr = Frame(self, height=2, bg = border_color)
@@ -28,15 +28,13 @@ class Dialog(Frame):
         self.listbox = Listbox(self,exportselection=0, selectmode='single', bg = box_bg, font = ('Arial' , font_size), fg = text_color, highlightthickness=0, bd = 0, activestyle = 'none')
         self.listbox.pack(fill=BOTH, expand=1)
 
-        self.current = None
 
-        self.listbox.bind("<Up>", self.lstu)
-        self.listbox.bind("<Down>", self.lstd)
-        self.entry.bind("<Up>", self.lstu)
-        self.entry.bind("<Down>", self.lstd)
-        self.listbox.bind("<Return>", self.entst)
-        self.entry.bind("<Return>", self.entst)
         self.listbox.bind("<Double-Button-1>", self.entst)
+
+        root.bind("<Up>", self.lstu)
+        root.bind("<Down>", self.lstd)
+        root.bind("<Return>", self.entst)
+        root.bind("<Escape>", self.exit)
 
         self.entry.focus_set()
 
@@ -48,6 +46,9 @@ class Dialog(Frame):
         self.listbox.delete(0,END)
         for program in newlist:
             self.listbox.insert(END, program)
+        self.listbox.select_set(0)
+        self.listbox.activate(0)
+
     
 
     def lstu(self, *args):
@@ -57,7 +58,6 @@ class Dialog(Frame):
             x = self.listbox.curselection()[0]
             self.listbox.select_clear(x)
             self.listbox.select_set(x-1)
-            self.listbox.activate(x)
 
     def lstd(self, *args):
         if not self.listbox.curselection():
@@ -66,8 +66,6 @@ class Dialog(Frame):
             x = self.listbox.curselection()[0]
             self.listbox.select_clear(x)
             self.listbox.select_set(x+1)
-            self.listbox.activate(x)
-
 
     def entst(self, *args):
         selection = self.listbox.curselection()
@@ -77,12 +75,15 @@ class Dialog(Frame):
         root.destroy()
         os.system(command_name)
 
+    def exit(self, *args):
+        root.destroy()
 
 dialog = Dialog(root)
 
 for program in programms_list:
     dialog.listbox.insert(END, program)
-
+dialog.listbox.select_set(0)
+dialog.listbox.activate(0)
 
 dialog.pack(expand = 'True', fill = 'both')
 root.mainloop()
