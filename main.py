@@ -1,15 +1,15 @@
 from tkinter import *
 import os
-from config import *
+import config
 
 programms_list = []
-for i in sources:
+for i in config.sources:
     programms_list.extend(os.listdir(path = i))
 programms_list = sorted(set(programms_list))
 
-windows_size = str(weight)+"x"+str(hight)
+windows_size = str(config.weight)+"x"+str(config.hight)
 root = Tk()
-root['bg'] = listbox_bg
+root['bg'] = config.listbox_bg
 root.geometry(windows_size)
 root.resizable(False, False)
 root.attributes('-type', 'dialog')
@@ -24,13 +24,13 @@ class Dialog(Frame):
         self.var = StringVar()
         self.var.trace("w", self.entry_changed)
 
-        self.entry = Entry(self, textvariable = self.var, bg = entry_bg, font = (text_font , font_size), fg = text_color, highlightthickness=0, bd = 0, insertbackground = text_color)
+        self.entry = Entry(self, textvariable = self.var, bg = config.entry_bg, font = (config.text_font , config.font_size), fg = config.text_color, highlightthickness=0, bd = 0, insertbackground = config.text_color)
         self.entry.pack(fill = 'x')
 
-        self.fr = Frame(self, height=separator_size, bg = separator_color)
+        self.fr = Frame(self, height = config.separator_size, bg = config.separator_color)
         self.fr.pack(fill = 'x')
 
-        self.listbox = Listbox(self,exportselection=0, selectmode='single', bg = listbox_bg, font = (text_font , font_size), fg = text_color ,selectforeground = text_color,selectbackground = focus_color, highlightthickness = 0 , bd = 0, activestyle = 'none')
+        self.listbox = Listbox(self,exportselection=0, selectmode='single', bg = config.listbox_bg, font = (config.text_font , config.font_size), fg = config.text_color ,selectforeground = config.text_color,selectbackground = config.focus_color, highlightthickness = 0 , bd = 0, activestyle = 'none')
         self.listbox.pack(fill=BOTH, expand=1)
 
 
