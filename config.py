@@ -1,6 +1,6 @@
 # Main
 weight = 300
-hight = 300
+height = 300
 
 font_size = 18
 text_font = "Arial"
