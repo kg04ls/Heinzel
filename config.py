@@ -16,6 +16,3 @@ focus_color = '#3f3a59'
 #Separator
 separator_color = '#635196'
 separator_size = 2
-
-# Sources
-sources = ["/bin", "/usr/bin"]

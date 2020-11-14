@@ -5,6 +5,10 @@ Deadly simple program menu. Tkinter is used as a gui reference.
 
 ![screencast](screencast.gif)
 
+## Usage
+In Heinzel you can use modules ( `Heinzel/modules`)
+To run the program normally, use `Heinzel -m run
+
 ## Why such a name, what does it mean?
 Heinzel or Heinzelmännchen - in German folklore, a homely spirit, for a modest fee - a jug of milk or a saucer of cream - he will do almost all the housework: washing dishes, sweeping the floors, taking care of livestock.
 
