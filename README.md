@@ -21,7 +21,7 @@ In Heinzel you can use modules ( `Heinzel/modules`)
 To run the program:` Heinzel -m "module name"`
 For example `Heinzel -m run`
 
-You can create your own modules
+You can create your own modules ![manual](https://github.com/flusq/Heinzel.wiki.git)
 
 ## Why such a name, what does it mean?
 Heinzel or Heinzelmännchen - in German folklore, a homely spirit, for a modest fee - a jug of milk or a saucer of cream - he will do almost all the housework: washing dishes, sweeping the floors, taking care of livestock.
