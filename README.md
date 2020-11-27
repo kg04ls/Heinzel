@@ -5,6 +5,17 @@ Deadly simple program menu. Tkinter is used as a gui reference.
 
 ![screencast](screencast.gif)
 
+## Installation
+Install tkinter in your distro
+For example ( Arch ):
+```
+pacman -S tk
+```
+then install requirements
+```
+pip3 install requirements.txt
+```
+
 ## Usage
 In Heinzel you can use modules ( `Heinzel/modules`)
 To run the program normally, use `Heinzel -m run
