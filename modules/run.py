@@ -17,4 +17,6 @@ def handle_entry(value):
 
 def handle_click(selected):
     subprocess.Popen([selected])
+
+def close():
     return True

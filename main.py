@@ -1,5 +1,5 @@
 #! /usr/bin/env python3
-import tkinter as tk 
+import tkinter as tk
 import os
 import config
 import argparse
@@ -47,7 +47,7 @@ class Dialog(tk.Frame):
             self.listbox.select_clear(x)
             self.listbox.select_set(x+1)
             self.listbox.yview_scroll(1, "units")
-            
+
     def entry_changed(self, *args):
         value = self.var.get()
         result_list = self.module.handle_entry(value)
@@ -55,11 +55,15 @@ class Dialog(tk.Frame):
         for item in result_list:
             self.listbox.insert(tk.END, item)
         self.listbox.select_set(0)
-        
+
     def handle_click(self, *args):
         selected = self.listbox.get(self.listbox.curselection())
-        close = self.module.handle_click(selected)
-        if close:
+        self.module.handle_click(selected)
+        self.close_window()
+
+    def close_window(self, *args):
+        it_close = self.module.close()
+        if it_close:
             self.root.destroy()
 
 
