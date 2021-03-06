@@ -6,7 +6,7 @@ Deadly simple program menu. Tkinter is used as a gui reference.
 ![screencast](screencast.gif)
 
 ## Installation
-Install tkinter in your distro
+Install tkinter in your distro.
 For example ( Arch ):
 ```
 pacman -S tk
