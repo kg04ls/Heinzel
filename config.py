@@ -1,13 +1,18 @@
 # Main
+weight = 300
+height = 300
+
+font_size = 18
+text_font = "Arial"
+text_color = '#f8f8ff'
 
 # Entry
-entry_bg = '#3b4252'
-border_color = '#5e81ac'
-border_size = 1
+entry_bg = '#9f97cc'
 
 # listbox
-box_bg = '#2e3440'
+listbox_bg = '#000000'
+focus_color = '#3f3a59'
 
-# Text 
-text_color = '#d8dee9'
-font_size = 18
+#Separator
+separator_color = '#635196'
+separator_size = 2
