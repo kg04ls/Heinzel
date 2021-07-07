@@ -99,5 +99,12 @@ def main():
     dialog.pack(expand = 'True', fill = 'both')
     root.mainloop()
 
+<<<<<<< HEAD
+
+dialog.pack(expand = 'True', fill = 'both')
+if __name__ == '__main__':
+    root.mainloop()
+=======
 if __name__ == '__main__':
     main()
+>>>>>>> 17fb70aac525ba02642e375763de1a2af03086fa
